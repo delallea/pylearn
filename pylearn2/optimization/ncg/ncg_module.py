@@ -40,7 +40,7 @@ def lazy_and(*args):
         if len(args) == 1:
             return args[0]
         else:
-            rval = ifelse(TT.eq(args[0],zero), false, apply_me(args[1:]))
+            rval = ifelse(TT.eq(args[0], zero), false, apply_me(args[1:]))
             return rval
     return apply_me(args)
 
@@ -49,7 +49,7 @@ def my_not(arg):
     return TT.eq(arg, zero)
 
 def ncg(cost_fn, x0s, args=(), gtol=1e-5,
-              maxiter=None, profile = False):
+        maxiter=None, profile=False):
     """Minimize a function using a nonlinear conjugate gradient algorithm.
 
     TODO : add a callback function
@@ -83,6 +83,7 @@ def ncg(cost_fn, x0s, args=(), gtol=1e-5,
     Ribiere. See Wright & Nocedal, 'Numerical Optimization',
     1999, pg. 120-122.
 
+    This function mimics `fmin_cg` from `scipy.optimize`.
     """
     if type(x0s) not in (tuple, list):
         x0s = [x0s]
@@ -95,14 +96,8 @@ def ncg(cost_fn, x0s, args=(), gtol=1e-5,
 
 
     if maxiter is None:
-        len_x0 = 0
-        for x0 in x0s:
-            if x0.ndim > 0:
-                len_x0 += TT.prod(x0.shape)
-            else:
-                len_x0 += one
-
-        maxiter = len_x0*200
+        len_x0 = sum(x0.size for x0 in x0s)
+        maxiter = len_x0 * 200
 
     out = cost_fn(*(x0s+args))
     global_x0s = [x for x in x0s]
