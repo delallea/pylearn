@@ -39,6 +39,7 @@ class wrap_function_cls(object):
         self.fn = fn
         self.ncalls = ncalls
         self.args = args
+        self.idx = 0
     def set_idx(self, idx):
         self.idx = idx
 
@@ -140,7 +141,7 @@ def py_zoom(a_lo, a_hi, phi_lo, phi_hi, derphi_lo,
                 a_j = a_lo + 0.5*dalpha
         # Check new value of a_j
 
-        phi_aj = phi(a_j,3)
+        phi_aj = phi(a_j)
         if (phi_aj > phi0 + c1*a_j*derphi0) or (phi_aj >= phi_lo):
             phi_rec = phi_hi
             a_rec = a_hi
