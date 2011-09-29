@@ -1,6 +1,6 @@
 import numpy, numpy as np
 import theano.tensor as TT, theano
-import rnn.gd_methods.linesearch_module as lsrc
+import pylearn2.optimization.ncg.linesearch_module as lsrc
 from python_cg import *
 import time
 
