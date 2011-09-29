@@ -18,6 +18,7 @@ from theano.scan_module import until
 
 _epsilon = TT.constant(numpy.asarray(numpy.sqrt(numpy.finfo(float).eps),
                                      dtype=theano.config.floatX))
+
 zero = TT.constant(numpy.asarray(0, dtype = theano.config.floatX))
 one  = TT.constant(numpy.asarray(1, dtype = theano.config.floatX))
 nan  = TT.constant(numpy.asarray(numpy.nan, dtype= theano.config.floatX))
