@@ -205,5 +205,3 @@ def ncg(cost_fn, x0s, args=(), gtol=1e-5,
     sol = [outs[0][-1]] + [x[-1] for x in outs[2:2+n_elems]]
     return sol
 
-
-
