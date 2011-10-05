@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import numpy, numpy as np
 import theano.tensor as TT, theano
 from pylearn2.optimization.ncg import ncg
