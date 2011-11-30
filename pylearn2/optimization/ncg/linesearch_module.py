@@ -10,7 +10,7 @@ __email__ = "r.pascanu@gmail"
 import numpy
 import theano.tensor as TT, theano
 
-from theano.lazycond import ifelse
+from theano.ifelse import ifelse
 from theano.scan_module import until
 
 zero = TT.constant(numpy.asarray(0, dtype = theano.config.floatX))

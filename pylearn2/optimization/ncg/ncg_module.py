@@ -15,7 +15,7 @@ import theano
 import theano.tensor as TT
 import linesearch_module as linesearch
 
-from theano.lazycond import ifelse
+from theano.ifelse import ifelse
 from theano.scan_module import until
 
 _epsilon = TT.constant(numpy.asarray(numpy.sqrt(numpy.finfo(float).eps),
